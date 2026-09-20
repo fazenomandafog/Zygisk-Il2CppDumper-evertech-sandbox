@@ -42,3 +42,4 @@ jobs:
         with:
           name: zygisk-il2cppdumper-${{ github.event.inputs.package_name }}
           path: module/build/outputs/apk/release/*.zip
+
