@@ -37,8 +37,15 @@ jobs:
           chmod +x gradlew
           ./gradlew :module:assembleRelease
 
+      - name: Find ZIP file
+        run: |
+          find . -name "*.zip" -type f
+
       - name: Upload module zip
         uses: actions/upload-artifact@v4
         with:
           name: zygisk-il2cppdumper-${{ github.event.inputs.package_name }}
-          path: module/build/outputs/apk/release/*.zip
+          path: |
+            module/release/*.zip
+            module/build/outputs/apk/release/*.zip
+            **/*.zip
